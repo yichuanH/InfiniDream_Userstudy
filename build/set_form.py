@@ -4,18 +4,20 @@
 用法:
     python3 build/set_form.py "<貼上預先填入的連結>"
 
-預填時三格請分別填入 PID / META / RESPONSES 這三個字（大小寫、單複數不拘），
-這支腳本就能自動判斷哪個 entry 對應哪個欄位。
+預填時各格請分別填入 PID / SUMMARY / META / RESPONSES（大小寫、單複數不拘），
+這支腳本就能自動判斷哪個 entry 對應哪個欄位。SUMMARY 是選用的，沒有也能跑。
 """
 import json, re, sys, urllib.parse
 from pathlib import Path
 
 CFG = Path(__file__).resolve().parent.parent / "docs" / "config.json"
 WANT = {                       # 預填值(小寫) -> config 欄位；容忍單複數與縮寫
-    "pid": "pid", "id": "pid",
+    "pid": "pid", "id": "pid", "name": "pid",
+    "summary": "summary", "summaries": "summary", "sum": "summary",
     "meta": "meta", "metadata": "meta",
     "responses": "responses", "response": "responses", "resp": "responses",
 }
+REQUIRED = ("pid", "meta", "responses")   # summary 是選用的
 
 
 def main():
@@ -42,14 +44,16 @@ def main():
             fields[key] = entry
             unmatched.pop(entry, None)
 
-    # 沒照規則填字的話，退回用「表單題目順序 = pid, meta, responses」
-    if len(fields) < 3:
+    # 沒照規則填字的話，退回用表單的題目順序
+    order = ["pid", "summary", "meta", "responses"] if len(entries) >= 4 \
+        else ["pid", "meta", "responses"]
+    if not all(k in fields for k in REQUIRED):
         left = [k for k in entries if k not in fields.values()]
-        for key in ("pid", "meta", "responses"):
+        for key in order:
             if key not in fields and left:
                 fields[key] = left.pop(0)
-        print("⚠️  沒認出 PID/META/RESPONSES 這三個字，改用表單的題目順序對應。"
-              "\n   請核對下面的結果，順序必須是 pid → meta → responses。")
+        print("⚠️  沒認出預填的關鍵字，改用表單的題目順序對應。"
+              f"\n   請核對下面的結果，順序必須是 {' → '.join(order)}。")
 
     cfg = json.loads(CFG.read_text(encoding="utf-8"))
     cfg["form"] = {"action": action, "fields": fields}
@@ -57,8 +61,12 @@ def main():
 
     print(f"✅ 已寫入 {CFG}\n")
     print(f"  action    {action}")
-    for k in ("pid", "meta", "responses"):
-        print(f"  {k:<9} {fields[k]}   (預填值: {entries[fields[k]]!r})")
+    for k in ("pid", "summary", "meta", "responses"):
+        if k in fields:
+            print(f"  {k:<9} {fields[k]}   (預填值: {entries[fields[k]]!r})")
+    if "summary" not in fields:
+        print("\n  （沒有 summary 欄位 —— 試算表就只會有原始 JSON。"
+              "\n   想要人看得懂的摘要，在表單加第 2 題 summary（段落）再跑一次。）")
     print("\n接著 commit + push，GitHub Pages 幾十秒後就會生效：")
     print("  git add docs/config.json && git commit -m 'link google form' && git push")
 

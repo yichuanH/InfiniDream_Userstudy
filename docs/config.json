@@ -29,6 +29,19 @@
       "Infinigen"
     ]
   },
+  "labels": {
+    "ours": "Ours",
+    "blenderag": "BlenderRAG",
+    "viga": "VIGA",
+    "cb_one_shot": "3DCodeBench-1shot",
+    "cb_harness": "3DCodeBench-harness",
+    "infinigen": "Infinigen",
+    "Ours": "Ours",
+    "VIGA": "VIGA",
+    "ClaudeOpus": "ClaudeOpus",
+    "Code2World": "Code2World",
+    "Infinigen": "Infinigen"
+  },
   "objects": [
     {
       "id": "colorful_butterfly",

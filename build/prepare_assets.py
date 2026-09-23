@@ -47,6 +47,15 @@ VIEW_OVERRIDE = {
 
 # --- scene：6 個方法（檔名 = 代號）-------------------------------------------
 SCN_METHODS = ["Ours", "VIGA", "ClaudeOpus", "Code2World", "Infinigen"]
+
+# 給人看的方法名稱（用在試算表的 summary 欄位）
+LABELS = {
+    "ours": "Ours", "blenderag": "BlenderRAG", "viga": "VIGA",
+    "cb_one_shot": "3DCodeBench-1shot", "cb_harness": "3DCodeBench-harness",
+    "infinigen": "Infinigen",
+    "Ours": "Ours", "VIGA": "VIGA", "ClaudeOpus": "ClaudeOpus",
+    "Code2World": "Code2World", "Infinigen": "Infinigen",
+}
 SCN_CASES = [
     "cliff", "coast", "coast_cypress", "coast_ginkgo", "coral_reef",
     "desert_s3", "desert", "canyon", "plain_sunflower", "under_water",
@@ -179,6 +188,7 @@ def main():
         "form": form,
         "sampling": sampling,
         "methods": {"object": [c for _, c in OBJ_METHODS], "scene": SCN_METHODS},
+        "labels": LABELS,
         "objects": objects,
         "scenes": scenes,
     }

@@ -128,35 +128,57 @@ translation falls back to English in Chinese mode and prints a build warning.
 
 Add **three questions**, in this order:
 
-| Question | Type |
-|---|---|
-| pid | Short answer |
-| meta | **Paragraph** |
-| responses | **Paragraph** |
+| Question | Type | |
+|---|---|---|
+| pid | Short answer | response id + the participant's name |
+| summary | **Paragraph** | human-readable recap — optional but recommended |
+| meta | **Paragraph** | language, timing, user agent |
+| responses | **Paragraph** | the raw JSON the analysis reads |
 
-The last two must be *Paragraph* (long text) — `responses` carries roughly 8 KB
-of JSON. Note that nobody ever fills this form by hand; the page writes to it
+Everything but `pid` must be *Paragraph* (long text) — `responses` carries
+roughly 8 KB of JSON.
+
+`summary` is what makes the spreadsheet readable without running anything. Its
+first line is the recap you see in the collapsed cell, and the rest is the
+per-question detail:
+
+```
+Ours 40/44 · 3DCodeBench-1shot 2/44 · Infinigen 2/44  |  44 judgements  |  ~2.2 min
+
+[OBJECT] 12 cases
+  bee                  align=Ours(D)  quality=Ours(D)  [7.5s]
+  seahorse             align=3DCodeBench-1shot(D)  quality=3DCodeBench-1shot(D)  [4.6s]
+  ...
+[SCENE] 10 cases
+  coast_cypress        align=Ours(C)  realism=Ours(C)  [3.7s]
+  ...
+```
+
+Leaving `summary` out still works — the sheet then only holds the raw JSON. Note that nobody ever fills this form by hand; the page writes to it
 programmatically, so the form is just a mailbox that feeds a spreadsheet.
 
-Under **Settings**, turn all three of these **off**:
+Under **Settings → Responses**, set *Collect email addresses* to **Do not
+collect** and turn off *Limit to 1 response*.
 
-- Collect email addresses
-- Restrict to users in *your organisation*
-- Limit to 1 response
+Then — this is the part that is easy to miss — press **Publish** (top right) and
+set the responder audience to **Anyone with the link**. On a Workspace account
+this defaults to your organisation only, and the form returns `401` to everyone
+else, including the survey page. `build/test_form.py` checks this for you:
 
-> If any one of them is on, the cross-site POST is redirected to a sign-in page
-> and no data arrives.
+```bash
+python3 build/test_form.py
+```
 
 ### 2. Point the site at the form
 
-Form → **⋮** → *Get pre-filled link*. Type `PID`, `META` and `RESPONSES` into the
-three fields, press *Get link*, and copy it. Then:
+Form → **⋮** → *Get pre-filled link*. Type `PID`, `SUMMARY`, `META` and
+`RESPONSES` into the respective fields, press *Get link*, and copy it. Then:
 
 ```bash
 python3 build/set_form.py "<the prefilled link>"
 ```
 
-This parses the form ID and the three `entry.*` IDs into `docs/config.json` and
+This parses the form ID and the `entry.*` IDs into `docs/config.json` and
 prints the mapping for you to check. Quote the URL — an unquoted `&` will send
 the command to the background.
 

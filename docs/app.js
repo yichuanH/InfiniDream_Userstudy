@@ -271,6 +271,41 @@ function preload(page) {
 }
 
 /* ── 送出 ────────────────────────────────────────────────────────── */
+
+/* 給人看的摘要，直接寫進試算表的一欄。
+   第一行是總結（Sheets 沒展開時就看得到），後面才是逐題明細。 */
+function buildSummary() {
+  const L = (m) => S.cfg.labels?.[m] ?? m;
+  // 用顯示名稱累計：object 的代號是 ours、scene 是 Ours，兩者應該併成同一筆
+  const tally = {};
+  for (const a of S.answers) {
+    const k = L(a.chosen_method);
+    tally[k] = (tally[k] || 0) + 1;
+  }
+  const n = S.answers.length;
+  const head = Object.entries(tally).sort((a, b) => b[1] - a[1])
+    .map(([m, c]) => `${m} ${c}/${n}`).join(' · ');
+
+  const lines = [];
+  for (const [level, title] of [['object', 'OBJECT'], ['scene', 'SCENE']]) {
+    const rows = S.answers.filter((a) => a.level === level);
+    if (!rows.length) continue;
+    const byCase = new Map();
+    for (const a of rows) {
+      if (!byCase.has(a.case_id)) byCase.set(a.case_id, []);
+      byCase.get(a.case_id).push(a);
+    }
+    lines.push('', `[${title}] ${byCase.size} cases`);
+    const w = Math.max(...[...byCase.keys()].map((k) => k.length));
+    for (const [caseId, as] of byCase) {
+      const picks = as.map((a) => `${a.question}=${L(a.chosen_method)}(${a.chosen_slot})`).join('  ');
+      lines.push(`  ${caseId.padEnd(w)}  ${picks}  [${(as[0].rt_ms / 1000).toFixed(1)}s]`);
+    }
+  }
+  const mins = (S.answers.reduce((t, a) => t + a.rt_ms, 0) / 2 / 60000).toFixed(1);
+  return `${head}  |  ${n} judgements  |  ~${mins} min\n${lines.join('\n')}`;
+}
+
 function payload() {
   return {
     pid: `${S.pid} | ${S.name}`,
@@ -284,6 +319,7 @@ function payload() {
       screen: `${screen.width}x${screen.height}@${devicePixelRatio}`,
       locale: navigator.language,
     }),
+    summary: buildSummary(),
     responses: JSON.stringify(S.answers),
   };
 }
