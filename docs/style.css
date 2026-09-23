@@ -1,0 +1,124 @@
+:root{
+  --bg:#fafafa; --card:#fff; --ink:#1a1a1a; --muted:#6b6b6b; --line:#e2e2e2;
+  --accent:#2b6cb0; --accent-soft:#e8f0fa; --ok:#2f855a; --warn:#b7791f;
+  --radius:10px; --maxw:1280px;
+}
+@media (prefers-color-scheme:dark){
+  :root{--bg:#161719;--card:#1f2124;--ink:#ececec;--muted:#9a9a9a;--line:#33363b;
+        --accent:#63a4e0;--accent-soft:#23313f;}
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{background:var(--bg);color:var(--ink);
+  font:16px/1.65 -apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans TC","PingFang TC",
+       "Microsoft JhengHei",Roboto,sans-serif;
+  -webkit-text-size-adjust:100%}
+main{max-width:var(--maxw);margin:0 auto;padding:22px 16px 72px}
+h1{font-size:1.5rem;margin:.2em 0 .6em;line-height:1.35}
+h2{font-size:1.12rem;margin:0 0 .5em}
+p{margin:.55em 0}
+.loading{text-align:center;color:var(--muted);padding:3rem 0}
+
+/* ── 進度條 ───────────────────────────────────────── */
+#progress-wrap{position:sticky;top:0;z-index:30;height:4px;background:var(--line)}
+#progress{height:100%;width:0;background:var(--accent);transition:width .25s ease}
+
+/* ── 卡片 / 區塊 ──────────────────────────────────── */
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
+      padding:18px 20px;margin-bottom:18px}
+.meta{color:var(--muted);font-size:.85rem}
+.prompt{background:var(--accent-soft);border-left:3px solid var(--accent);
+        border-radius:6px;padding:12px 14px;margin:0 0 16px;font-size:.98rem}
+.prompt b{display:block;font-size:.78rem;letter-spacing:.06em;text-transform:uppercase;
+          color:var(--muted);margin-bottom:4px;font-weight:600}
+.note{font-size:.88rem;color:var(--muted)}
+.warn{color:var(--warn)}
+
+/* ── 選項網格（圖 / 影片共用）─────────────────────── */
+.grid{display:grid;gap:10px;margin:0 0 6px}
+.grid.obj{grid-template-columns:repeat(3,1fr)}
+.grid.scene{display:flex;flex-wrap:wrap;justify-content:center}
+.grid.scene>.slot{flex:0 1 calc(33.333% - 7px);min-width:260px}
+
+@media (max-width:760px){
+  .grid.obj{grid-template-columns:repeat(2,1fr)}
+  .grid.scene>.slot{flex-basis:calc(50% - 5px);min-width:0}
+}
+@media (max-width:480px){.grid.scene>.slot{flex-basis:100%}}
+
+.slot{position:relative;border:1px solid var(--line);border-radius:8px;overflow:hidden;
+      background:#fff;aspect-ratio:1/1}
+.slot.vid{aspect-ratio:16/9;background:#000}
+.slot img,.slot video{width:100%;height:100%;object-fit:cover;display:block}
+.slot .tag{position:absolute;top:6px;left:6px;z-index:2;
+  background:rgba(0,0,0,.72);color:#fff;font-weight:700;font-size:.82rem;
+  min-width:1.6em;text-align:center;border-radius:5px;padding:2px 7px;letter-spacing:.02em}
+.slot .zoom{position:absolute;bottom:6px;right:6px;z-index:2;border:0;cursor:pointer;
+  background:rgba(0,0,0,.6);color:#fff;border-radius:5px;padding:3px 8px;font-size:.75rem}
+
+/* ── 作答列 ───────────────────────────────────────── */
+.q{margin-top:18px;padding-top:14px;border-top:1px solid var(--line)}
+.q:first-of-type{border-top:0}
+.q h2{font-size:1rem}
+.q .hint{color:var(--muted);font-size:.86rem;margin:-.2em 0 .7em}
+.choices{display:flex;flex-wrap:wrap;gap:8px}
+.choices label{flex:1 1 72px;min-width:72px}
+.choices input{position:absolute;opacity:0;pointer-events:none}
+.choices span{display:block;text-align:center;cursor:pointer;user-select:none;
+  border:1.5px solid var(--line);border-radius:8px;padding:9px 4px;font-weight:600;
+  background:var(--card);transition:.12s}
+.choices label:hover span{border-color:var(--accent)}
+.choices input:checked+span{background:var(--accent);border-color:var(--accent);color:#fff}
+.choices input:focus-visible+span{outline:2px solid var(--accent);outline-offset:2px}
+
+/* ── 按鈕 ─────────────────────────────────────────── */
+.actions{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-top:20px}
+button.btn{font:inherit;font-weight:600;cursor:pointer;border-radius:8px;padding:11px 24px;
+  border:1.5px solid var(--accent);background:var(--accent);color:#fff}
+button.btn.ghost{background:transparent;color:var(--accent)}
+button.btn:disabled{opacity:.45;cursor:not-allowed}
+.err{color:#c53030;font-size:.9rem;margin-left:4px}
+
+/* ── 表單 ─────────────────────────────────────────── */
+.field{margin:14px 0}
+.field label.lbl{display:block;font-weight:600;margin-bottom:6px;font-size:.95rem}
+.field select,.field input[type=text]{font:inherit;width:100%;max-width:420px;
+  padding:9px 11px;border:1px solid var(--line);border-radius:8px;
+  background:var(--card);color:var(--ink)}
+
+/* ── lightbox ─────────────────────────────────────── */
+#lightbox{position:fixed;inset:0;z-index:100;background:rgba(0,0,0,.9);
+  display:flex;align-items:center;justify-content:center;padding:20px}
+#lightbox[hidden]{display:none}
+#lightbox img{max-width:100%;max-height:100%;object-fit:contain;background:#fff;border-radius:6px}
+#lightbox button{position:absolute;top:14px;right:18px;font-size:2rem;line-height:1;
+  background:none;border:0;color:#fff;cursor:pointer}
+
+code.code{background:var(--accent-soft);padding:2px 8px;border-radius:5px;
+  font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-weight:700;letter-spacing:.08em}
+
+/* ── 首頁：副標、分隔線、語言按鈕 ─────────────────── */
+h1 .sub{display:block;font-size:.72em;font-weight:500;color:var(--muted);margin-top:4px}
+hr.sep{border:0;border-top:1px solid var(--line);margin:20px 0 16px}
+.choices.lang label{flex:0 1 180px}
+.note ul,ul.note{padding-left:1.2em;margin:.6em 0}
+ul.note li{margin:.25em 0}
+
+/* ── 物件題：描述 + 參考圖並排 ────────────────────── */
+.head{display:grid;grid-template-columns:1fr 200px;gap:14px;align-items:start;margin-bottom:16px}
+.head .prompt{margin:0}
+figure.ref{margin:0;text-align:center}
+figure.ref img{width:100%;aspect-ratio:1/1;object-fit:contain;background:#fff;cursor:zoom-in;
+  border:1px solid var(--line);border-radius:8px;display:block}
+figure.ref figcaption{font-size:.76rem;color:var(--muted);margin-top:4px;
+  letter-spacing:.06em;text-transform:uppercase;font-weight:600}
+@media (max-width:640px){
+  .head{grid-template-columns:1fr;justify-items:center}
+  figure.ref{width:170px}
+}
+
+/* ── 區段說明（掛在該區段第一題上，不另開一頁）────── */
+.section-note{background:var(--card);border:1px solid var(--accent);
+  border-radius:var(--radius);padding:14px 16px;margin:0 0 18px}
+.section-note h2{margin:0 0 .35em;color:var(--accent);font-size:1.05rem}
+.section-note p{margin:0;font-size:.92rem;color:var(--muted)}

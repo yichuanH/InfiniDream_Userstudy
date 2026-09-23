@@ -1,0 +1,406 @@
+{
+  "form": {
+    "action": "",
+    "fields": {
+      "pid": "",
+      "meta": "",
+      "responses": ""
+    }
+  },
+  "sampling": {
+    "objectPerParticipant": 12,
+    "scenePerParticipant": 10,
+    "estimatedMinutes": 5
+  },
+  "methods": {
+    "object": [
+      "ours",
+      "blenderag",
+      "viga",
+      "cb_one_shot",
+      "cb_harness",
+      "infinigen"
+    ],
+    "scene": [
+      "Ours",
+      "VIGA",
+      "ClaudeOpus",
+      "Code2World",
+      "Infinigen"
+    ]
+  },
+  "objects": [
+    {
+      "id": "colorful_butterfly",
+      "category": "Animal_25",
+      "prompt": "A butterfly with four broad rounded wings held open, patterned in bright orange, black and white with dark veins and a row of pale spots along the wing edges, a slender furry body, and thin clubbed antennae.",
+      "prompt_zh": "一隻蝴蝶，四片寬闊圓潤的翅膀展開，翅面是鮮豔的橘色、黑色與白色花紋，帶有深色脈紋，翅緣沿線排著一列淺色斑點；身體細長多毛，觸角細長、末端呈棒狀。",
+      "ref": "assets/obj/colorful_butterfly/_ref.jpg",
+      "images": {
+        "ours": "assets/obj/colorful_butterfly/ours.jpg",
+        "blenderag": "assets/obj/colorful_butterfly/blenderag.jpg",
+        "viga": "assets/obj/colorful_butterfly/viga.jpg",
+        "cb_one_shot": "assets/obj/colorful_butterfly/cb_one_shot.jpg",
+        "cb_harness": "assets/obj/colorful_butterfly/cb_harness.jpg",
+        "infinigen": "assets/obj/colorful_butterfly/infinigen.jpg"
+      }
+    },
+    {
+      "id": "golden_pangolin",
+      "category": "Animal_25",
+      "prompt": "A pangolin walking on four short legs with an arched body covered in overlapping golden-brown keratin scales, a small conical head without teeth, powerful curved foreclaws, and a very long thick fully scaled tail.",
+      "prompt_zh": "一隻穿山甲，用四條短腿行走，拱起的身體覆蓋著層層交疊的金褐色角質鱗片，頭部小而呈圓錐狀、沒有牙齒，前爪強壯彎曲，尾巴非常長而粗厚、同樣布滿鱗片。",
+      "ref": "assets/obj/golden_pangolin/_ref.jpg",
+      "images": {
+        "ours": "assets/obj/golden_pangolin/ours.jpg",
+        "blenderag": "assets/obj/golden_pangolin/blenderag.jpg",
+        "viga": "assets/obj/golden_pangolin/viga.jpg",
+        "cb_one_shot": "assets/obj/golden_pangolin/cb_one_shot.jpg",
+        "cb_harness": "assets/obj/golden_pangolin/cb_harness.jpg",
+        "infinigen": "assets/obj/golden_pangolin/infinigen.jpg"
+      }
+    },
+    {
+      "id": "snow_leopard",
+      "category": "Animal_25",
+      "prompt": "A snow leopard: a powerful spotted cat with thick pale smoky-grey fur covered in dark rosettes, a broad head with small rounded ears, short sturdy legs with wide paws, and a very long thick tail.",
+      "prompt_zh": "一隻雪豹：強壯的斑點大貓，覆蓋著厚實的淡煙灰色毛皮，上面布滿深色的梅花狀斑紋；寬闊的頭部配上小而圓的耳朵，四肢短而結實、腳掌寬大，尾巴非常長且粗厚。",
+      "ref": "assets/obj/snow_leopard/_ref.jpg",
+      "images": {
+        "ours": "assets/obj/snow_leopard/ours.jpg",
+        "blenderag": "assets/obj/snow_leopard/blenderag.jpg",
+        "viga": "assets/obj/snow_leopard/viga.jpg",
+        "cb_one_shot": "assets/obj/snow_leopard/cb_one_shot.jpg",
+        "cb_harness": "assets/obj/snow_leopard/cb_harness.jpg",
+        "infinigen": "assets/obj/snow_leopard/infinigen.jpg"
+      }
+    },
+    {
+      "id": "alpine_hare",
+      "category": "Animal_25",
+      "prompt": "A mountain hare: a compact rounded body with dense white winter fur, very long ears with black tips, large powerful hind legs folded under the body, and short front legs.",
+      "prompt_zh": "一隻雪兔：身體緊實渾圓，覆蓋著濃密的白色冬毛；耳朵非常長、末端為黑色；強而有力的大後腿收摺在身體下方，前腿短小。",
+      "ref": "assets/obj/alpine_hare/_ref.jpg",
+      "images": {
+        "ours": "assets/obj/alpine_hare/ours.jpg",
+        "blenderag": "assets/obj/alpine_hare/blenderag.jpg",
+        "viga": "assets/obj/alpine_hare/viga.jpg",
+        "cb_one_shot": "assets/obj/alpine_hare/cb_one_shot.jpg",
+        "cb_harness": "assets/obj/alpine_hare/cb_harness.jpg",
+        "infinigen": "assets/obj/alpine_hare/infinigen.jpg"
+      }
+    },
+    {
+      "id": "pink_mossy_boulder",
+      "category": "Nature_10",
+      "prompt": "A mossy forest boulder with pink lichen, chipped edges, damp surface patches, and roots curling around its base.",
+      "prompt_zh": "一顆長滿苔蘚的森林巨石，上面有粉紅色的地衣、缺角崩落的邊緣、濕潤的斑塊，底部纏繞著樹根。",
+      "ref": "assets/obj/pink_mossy_boulder/_ref.jpg",
+      "images": {
+        "ours": "assets/obj/pink_mossy_boulder/ours.jpg",
+        "blenderag": "assets/obj/pink_mossy_boulder/blenderag.jpg",
+        "viga": "assets/obj/pink_mossy_boulder/viga.jpg",
+        "cb_one_shot": "assets/obj/pink_mossy_boulder/cb_one_shot.jpg",
+        "cb_harness": "assets/obj/pink_mossy_boulder/cb_harness.jpg",
+        "infinigen": "assets/obj/pink_mossy_boulder/infinigen.jpg"
+      }
+    },
+    {
+      "id": "bee",
+      "category": "Animal_25",
+      "prompt": "A honey bee: a fuzzy oval body banded in yellow and black, a darker furry thorax, two pairs of small translucent veined wings held out to the sides, six thin legs, and short antennae.",
+      "prompt_zh": "一隻蜜蜂：毛茸茸的橢圓形身體上有黃黑相間的條紋，胸部的毛色較深；兩對小而半透明、帶脈紋的翅膀向兩側展開；六隻細腿，以及短短的觸角。",
+      "ref": "assets/obj/bee/_ref.jpg",
+      "images": {
+        "ours": "assets/obj/bee/ours.jpg",
+        "blenderag": "assets/obj/bee/blenderag.jpg",
+        "viga": "assets/obj/bee/viga.jpg",
+        "cb_one_shot": "assets/obj/bee/cb_one_shot.jpg",
+        "cb_harness": "assets/obj/bee/cb_harness.jpg",
+        "infinigen": "assets/obj/bee/infinigen.jpg"
+      }
+    },
+    {
+      "id": "king_crab",
+      "category": "Marine_15",
+      "prompt": "A red king crab: a broad spiny carapace, three pairs of very long jointed walking legs spreading wide, one pair of large asymmetric pincer claws held forward, and two stalked eyes. Deep red-orange spiny shell.",
+      "prompt_zh": "一隻紅帝王蟹：寬闊多刺的甲殼，三對非常長的節肢步足向外大幅張開，一對大而不對稱的螯向前舉起，還有兩隻柄狀的眼睛。甲殼為深紅橘色並布滿棘刺。",
+      "ref": "assets/obj/king_crab/_ref.jpg",
+      "images": {
+        "ours": "assets/obj/king_crab/ours.jpg",
+        "blenderag": "assets/obj/king_crab/blenderag.jpg",
+        "viga": "assets/obj/king_crab/viga.jpg",
+        "cb_one_shot": "assets/obj/king_crab/cb_one_shot.jpg",
+        "cb_harness": "assets/obj/king_crab/cb_harness.jpg",
+        "infinigen": "assets/obj/king_crab/infinigen.jpg"
+      }
+    },
+    {
+      "id": "lavender",
+      "category": "Plants_20",
+      "prompt": "A lavender plant: many thin upright grey-green stems rising from a bushy base, each stem topped by a narrow spike of small purple flowers clustered around it.",
+      "prompt_zh": "一株薰衣草：許多細長筆直的灰綠色莖從叢生的基部向上生長，每根莖的頂端都是一束細長的花穗，上面聚集著細小的紫色花朵。",
+      "ref": "assets/obj/lavender/_ref.jpg",
+      "images": {
+        "ours": "assets/obj/lavender/ours.jpg",
+        "blenderag": "assets/obj/lavender/blenderag.jpg",
+        "viga": "assets/obj/lavender/viga.jpg",
+        "cb_one_shot": "assets/obj/lavender/cb_one_shot.jpg",
+        "cb_harness": "assets/obj/lavender/cb_harness.jpg",
+        "infinigen": "assets/obj/lavender/infinigen.jpg"
+      }
+    },
+    {
+      "id": "red_handfish",
+      "category": "Marine_15",
+      "prompt": "A red handfish with a small squat warty body, a tall crest above the head, and modified pectoral fins shaped like hands that it walks on, in deep red and cream mottled colouring.",
+      "prompt_zh": "一隻紅手魚，身體小而矮胖、布滿疣狀突起，頭頂上方有一個高聳的冠狀突起，胸鰭特化成像手一樣的形狀、可以用來行走；體色為深紅與乳白相間的斑駁花紋。",
+      "ref": "assets/obj/red_handfish/_ref.jpg",
+      "images": {
+        "ours": "assets/obj/red_handfish/ours.jpg",
+        "blenderag": "assets/obj/red_handfish/blenderag.jpg",
+        "viga": "assets/obj/red_handfish/viga.jpg",
+        "cb_one_shot": "assets/obj/red_handfish/cb_one_shot.jpg",
+        "cb_harness": "assets/obj/red_handfish/cb_harness.jpg",
+        "infinigen": "assets/obj/red_handfish/infinigen.jpg"
+      }
+    },
+    {
+      "id": "peacock",
+      "category": "Animal_25",
+      "prompt": "A peacock with its train fanned out: iridescent blue neck and breast, a crest of thin feathers on the head, and a huge semicircular fan of long tail feathers behind it, each ending in a blue-and-green eye spot.",
+      "prompt_zh": "一隻開屏的孔雀：頸部與胸前是帶虹彩的藍色，頭頂有一撮細長羽毛組成的冠羽，身後張開一面巨大的半圓形尾屏，每根長尾羽的末端都有一個藍綠色的眼狀斑。",
+      "ref": "assets/obj/peacock/_ref.jpg",
+      "images": {
+        "ours": "assets/obj/peacock/ours.jpg",
+        "blenderag": "assets/obj/peacock/blenderag.jpg",
+        "viga": "assets/obj/peacock/viga.jpg",
+        "cb_one_shot": "assets/obj/peacock/cb_one_shot.jpg",
+        "cb_harness": "assets/obj/peacock/cb_harness.jpg",
+        "infinigen": "assets/obj/peacock/infinigen.jpg"
+      }
+    },
+    {
+      "id": "blue_jacaranda_tree",
+      "category": "Plants_20",
+      "prompt": "A graceful jacaranda tree with a spreading umbrella crown, twisting dark branches, delicate fern-like foliage, and abundant hanging clusters of trumpet-shaped violet-blue flowers across the entire canopy.",
+      "prompt_zh": "一棵姿態優美的藍花楹：樹冠如傘般向外開展，深色枝條蜿蜒扭轉，葉片細緻如蕨；整片樹冠上垂掛著大量成串的紫藍色喇叭形花朵。",
+      "ref": "assets/obj/blue_jacaranda_tree/_ref.jpg",
+      "images": {
+        "ours": "assets/obj/blue_jacaranda_tree/ours.jpg",
+        "blenderag": "assets/obj/blue_jacaranda_tree/blenderag.jpg",
+        "viga": "assets/obj/blue_jacaranda_tree/viga.jpg",
+        "cb_one_shot": "assets/obj/blue_jacaranda_tree/cb_one_shot.jpg",
+        "cb_harness": "assets/obj/blue_jacaranda_tree/cb_harness.jpg",
+        "infinigen": "assets/obj/blue_jacaranda_tree/infinigen.jpg"
+      }
+    },
+    {
+      "id": "seahorse",
+      "category": "Marine_15",
+      "prompt": "A seahorse in its characteristic upright posture: an S-curved segmented torso, a horse-like head with a long tubular snout, a small spiky coronet, ridged bony plates, a tiny dorsal fin, and a long prehensile tail curled into a tight spiral. Rebuild the body profile and curled tail as geometry; it must not resemble an ordinary horizontal fish.",
+      "prompt_zh": "一隻呈現典型直立姿態的海馬：軀幹呈 S 形彎曲並分節，頭部像馬、有長長的管狀吻部，頭頂有小而尖的冠突，體表是有稜的骨板，背鰭小巧，尾巴長而能捲曲、末端盤成緊密的螺旋。身體輪廓與捲曲的尾巴必須是真正的幾何構造，不能長得像一般橫躺的魚。",
+      "ref": "assets/obj/seahorse/_ref.jpg",
+      "images": {
+        "ours": "assets/obj/seahorse/ours.jpg",
+        "blenderag": "assets/obj/seahorse/blenderag.jpg",
+        "viga": "assets/obj/seahorse/viga.jpg",
+        "cb_one_shot": "assets/obj/seahorse/cb_one_shot.jpg",
+        "cb_harness": "assets/obj/seahorse/cb_harness.jpg",
+        "infinigen": "assets/obj/seahorse/infinigen.jpg"
+      }
+    }
+  ],
+  "scenes": [
+    {
+      "id": "cliff",
+      "prompt": "A blazing autumn canopy on a cliff: vivid orange and crimson maple leaves, clusters of bright red winged samara seeds, brilliant blue morpho butterflies, grey rock cliff face.",
+      "prompt_zh": "崖壁上一片熾烈的秋日樹冠：鮮豔的橘色與緋紅色楓葉、一串串鮮紅色的翅果、閃著金屬藍光的大藍閃蝶，以及灰色的岩石崖面。",
+      "videos": {
+        "Ours": "assets/scene/cliff/Ours.mp4",
+        "VIGA": "assets/scene/cliff/VIGA.mp4",
+        "ClaudeOpus": "assets/scene/cliff/ClaudeOpus.mp4",
+        "Code2World": "assets/scene/cliff/Code2World.mp4",
+        "Infinigen": "assets/scene/cliff/Infinigen.mp4"
+      },
+      "posters": {
+        "Ours": "assets/scene/cliff/Ours.jpg",
+        "VIGA": "assets/scene/cliff/VIGA.jpg",
+        "ClaudeOpus": "assets/scene/cliff/ClaudeOpus.jpg",
+        "Code2World": "assets/scene/cliff/Code2World.jpg",
+        "Infinigen": "assets/scene/cliff/Infinigen.jpg"
+      }
+    },
+    {
+      "id": "coast",
+      "prompt": "A tropical palm beach paradise: a flock of tall pink flamingos wading in a calm lagoon, a dense grove of tall coconut palms, a white sailboat, pale sand and rocky headland, clear blue sky.",
+      "prompt_zh": "熱帶棕櫚海灘天堂：一群高挑的粉紅火鶴在平靜的潟湖中涉水，岸邊是一片茂密高聳的椰子樹林，還有一艘白色帆船、淺色沙灘與岩石岬角，天空湛藍無雲。",
+      "videos": {
+        "Ours": "assets/scene/coast/Ours.mp4",
+        "VIGA": "assets/scene/coast/VIGA.mp4",
+        "ClaudeOpus": "assets/scene/coast/ClaudeOpus.mp4",
+        "Code2World": "assets/scene/coast/Code2World.mp4",
+        "Infinigen": "assets/scene/coast/Infinigen.mp4"
+      },
+      "posters": {
+        "Ours": "assets/scene/coast/Ours.jpg",
+        "VIGA": "assets/scene/coast/VIGA.jpg",
+        "ClaudeOpus": "assets/scene/coast/ClaudeOpus.jpg",
+        "Code2World": "assets/scene/coast/Code2World.jpg",
+        "Infinigen": "assets/scene/coast/Infinigen.jpg"
+      }
+    },
+    {
+      "id": "coast_cypress",
+      "prompt": "A calm coastal lagoon: bald cypress trees along the shore with tapering trunks and tiers of rusty-brown needle foliage, low snowberry shrubs, a flock of black-and-white magpie ducks floating on the still water, pale sand banks, clear blue sky.",
+      "prompt_zh": "平靜的海岸潟湖：岸邊的落羽松有著逐漸收窄的樹幹和一層層鏽褐色的針葉，低矮的雪果灌木叢，一群黑白相間的喜鵲鴨漂浮在靜止的水面上，淺色的沙岸，天空湛藍清澈。",
+      "videos": {
+        "Ours": "assets/scene/coast_cypress/Ours.mp4",
+        "VIGA": "assets/scene/coast_cypress/VIGA.mp4",
+        "ClaudeOpus": "assets/scene/coast_cypress/ClaudeOpus.mp4",
+        "Code2World": "assets/scene/coast_cypress/Code2World.mp4",
+        "Infinigen": "assets/scene/coast_cypress/Infinigen.mp4"
+      },
+      "posters": {
+        "Ours": "assets/scene/coast_cypress/Ours.jpg",
+        "VIGA": "assets/scene/coast_cypress/VIGA.jpg",
+        "ClaudeOpus": "assets/scene/coast_cypress/ClaudeOpus.jpg",
+        "Code2World": "assets/scene/coast_cypress/Code2World.jpg",
+        "Infinigen": "assets/scene/coast_cypress/Infinigen.jpg"
+      }
+    },
+    {
+      "id": "coast_ginkgo",
+      "prompt": "A golden autumn lakeshore: ginkgo trees blazing brilliant yellow, brightly coloured kayaks in pink, mint green, violet and cyan on still water, red rock hills, warm evening light.",
+      "prompt_zh": "金黃色的秋日湖岸：銀杏樹燃燒般地轉為燦爛金黃，粉紅、薄荷綠、紫羅蘭與青藍色的鮮豔獨木舟停在平靜的水面上，紅色的岩丘，溫暖的黃昏光線。",
+      "videos": {
+        "Ours": "assets/scene/coast_ginkgo/Ours.mp4",
+        "VIGA": "assets/scene/coast_ginkgo/VIGA.mp4",
+        "ClaudeOpus": "assets/scene/coast_ginkgo/ClaudeOpus.mp4",
+        "Code2World": "assets/scene/coast_ginkgo/Code2World.mp4",
+        "Infinigen": "assets/scene/coast_ginkgo/Infinigen.mp4"
+      },
+      "posters": {
+        "Ours": "assets/scene/coast_ginkgo/Ours.jpg",
+        "VIGA": "assets/scene/coast_ginkgo/VIGA.jpg",
+        "ClaudeOpus": "assets/scene/coast_ginkgo/ClaudeOpus.jpg",
+        "Code2World": "assets/scene/coast_ginkgo/Code2World.jpg",
+        "Infinigen": "assets/scene/coast_ginkgo/Infinigen.jpg"
+      }
+    },
+    {
+      "id": "coral_reef",
+      "prompt": "A vivid tropical coral reef underwater: a round spiny pufferfish, orange and white striped clownfish, soft anemones in every colour, pale glowing jellyfish, clear blue water.",
+      "prompt_zh": "色彩繽紛的熱帶珊瑚礁水下景象：一隻圓滾滾的刺河魨、橘白條紋的小丑魚、各種顏色的柔軟海葵、淡淡發光的水母，以及清澈的藍色海水。",
+      "videos": {
+        "Ours": "assets/scene/coral_reef/Ours.mp4",
+        "VIGA": "assets/scene/coral_reef/VIGA.mp4",
+        "ClaudeOpus": "assets/scene/coral_reef/ClaudeOpus.mp4",
+        "Code2World": "assets/scene/coral_reef/Code2World.mp4",
+        "Infinigen": "assets/scene/coral_reef/Infinigen.mp4"
+      },
+      "posters": {
+        "Ours": "assets/scene/coral_reef/Ours.jpg",
+        "VIGA": "assets/scene/coral_reef/VIGA.jpg",
+        "ClaudeOpus": "assets/scene/coral_reef/ClaudeOpus.jpg",
+        "Code2World": "assets/scene/coral_reef/Code2World.jpg",
+        "Infinigen": "assets/scene/coral_reef/Infinigen.jpg"
+      }
+    },
+    {
+      "id": "desert_s3",
+      "prompt": "A sun-baked cactus desert: giant ribbed saguaro cacti with thick arms, dusty oasis palms, round barrel cacti crowned with magenta flowers, golden-scaled pangolins, pale pink sand.",
+      "prompt_zh": "烈日曝曬的仙人掌沙漠：巨大的巨柱仙人掌有著粗壯的手臂與明顯的稜脊，塵土中的綠洲棕櫚，圓球形的金琥仙人掌頂著一圈桃紅色花朵，金色鱗片的穿山甲，以及淡粉色的沙地。",
+      "videos": {
+        "Ours": "assets/scene/desert_s3/Ours.mp4",
+        "VIGA": "assets/scene/desert_s3/VIGA.mp4",
+        "ClaudeOpus": "assets/scene/desert_s3/ClaudeOpus.mp4",
+        "Code2World": "assets/scene/desert_s3/Code2World.mp4",
+        "Infinigen": "assets/scene/desert_s3/Infinigen.mp4"
+      },
+      "posters": {
+        "Ours": "assets/scene/desert_s3/Ours.jpg",
+        "VIGA": "assets/scene/desert_s3/VIGA.jpg",
+        "ClaudeOpus": "assets/scene/desert_s3/ClaudeOpus.jpg",
+        "Code2World": "assets/scene/desert_s3/Code2World.jpg",
+        "Infinigen": "assets/scene/desert_s3/Infinigen.jpg"
+      }
+    },
+    {
+      "id": "desert",
+      "prompt": "A lush desert oasis among red rock: giant tree ferns with arching feathered fronds, powdery silver-blue agave rosettes, barrel cacti in vivid orange bloom, sandstone outcrops and distant buttes, hazy warm light.",
+      "prompt_zh": "紅色岩層間一處生機盎然的沙漠綠洲：巨大的樹蕨張開羽狀的拱形葉片，粉白帶銀藍色的龍舌蘭呈蓮座狀展開，金琥仙人掌開著鮮橘色的花，還有砂岩露頭與遠方的方山，光線溫暖而朦朧。",
+      "videos": {
+        "Ours": "assets/scene/desert/Ours.mp4",
+        "VIGA": "assets/scene/desert/VIGA.mp4",
+        "ClaudeOpus": "assets/scene/desert/ClaudeOpus.mp4",
+        "Code2World": "assets/scene/desert/Code2World.mp4",
+        "Infinigen": "assets/scene/desert/Infinigen.mp4"
+      },
+      "posters": {
+        "Ours": "assets/scene/desert/Ours.jpg",
+        "VIGA": "assets/scene/desert/VIGA.jpg",
+        "ClaudeOpus": "assets/scene/desert/ClaudeOpus.jpg",
+        "Code2World": "assets/scene/desert/Code2World.jpg",
+        "Infinigen": "assets/scene/desert/Infinigen.jpg"
+      }
+    },
+    {
+      "id": "canyon",
+      "prompt": "A blossom-filled red sandstone canyon: flowering trees in coral pink, magenta, red and lavender, big frothy blossom clusters, blooming rose bushes, layered rock buttes and mesas, warm dusty haze.",
+      "prompt_zh": "開滿花的紅砂岩峽谷：珊瑚粉、洋紅、紅色與薰衣草紫的開花樹木，簇擁成蓬鬆的大片花團，盛開的玫瑰花叢，層層疊疊的岩石方山與台地，籠罩在溫暖的塵霧之中。",
+      "videos": {
+        "Ours": "assets/scene/canyon/Ours.mp4",
+        "VIGA": "assets/scene/canyon/VIGA.mp4",
+        "ClaudeOpus": "assets/scene/canyon/ClaudeOpus.mp4",
+        "Code2World": "assets/scene/canyon/Code2World.mp4",
+        "Infinigen": "assets/scene/canyon/Infinigen.mp4"
+      },
+      "posters": {
+        "Ours": "assets/scene/canyon/Ours.jpg",
+        "VIGA": "assets/scene/canyon/VIGA.jpg",
+        "ClaudeOpus": "assets/scene/canyon/ClaudeOpus.jpg",
+        "Code2World": "assets/scene/canyon/Code2World.jpg",
+        "Infinigen": "assets/scene/canyon/Infinigen.jpg"
+      }
+    },
+    {
+      "id": "plain_sunflower",
+      "prompt": "A hazy flowering meadow: masses of small flat yellow daisy-like sunflowers on tall stems, blooming rose bushes in coral pink, orange and white, big fuzzy black-and-yellow bees in flight, broad dark-green trees, fallen logs.",
+      "prompt_zh": "朦朧薄霧中的花海草原：高莖上開滿了大片扁平的小黃色雛菊狀向日葵，珊瑚粉、橘色與白色的玫瑰花叢正盛開，毛茸茸的黑黃色大蜜蜂在空中飛舞，還有寬大的墨綠色樹木與倒下的原木。",
+      "videos": {
+        "Ours": "assets/scene/plain_sunflower/Ours.mp4",
+        "VIGA": "assets/scene/plain_sunflower/VIGA.mp4",
+        "ClaudeOpus": "assets/scene/plain_sunflower/ClaudeOpus.mp4",
+        "Code2World": "assets/scene/plain_sunflower/Code2World.mp4",
+        "Infinigen": "assets/scene/plain_sunflower/Infinigen.mp4"
+      },
+      "posters": {
+        "Ours": "assets/scene/plain_sunflower/Ours.jpg",
+        "VIGA": "assets/scene/plain_sunflower/VIGA.jpg",
+        "ClaudeOpus": "assets/scene/plain_sunflower/ClaudeOpus.jpg",
+        "Code2World": "assets/scene/plain_sunflower/Code2World.jpg",
+        "Infinigen": "assets/scene/plain_sunflower/Infinigen.jpg"
+      }
+    },
+    {
+      "id": "under_water",
+      "prompt": "A colourful underwater seascape: blue tangs with royal-blue bodies and bright yellow tails, golden-yellow kelp fronds, pale coral branches, a deep red spiny king crab, deep blue water.",
+      "prompt_zh": "色彩豐富的水下海景：身體是寶藍色、尾巴鮮黃的藍倒吊魚，金黃色的海帶葉片，淺色的珊瑚枝，一隻深紅色多刺的帝王蟹，以及深藍色的海水。",
+      "videos": {
+        "Ours": "assets/scene/under_water/Ours.mp4",
+        "VIGA": "assets/scene/under_water/VIGA.mp4",
+        "ClaudeOpus": "assets/scene/under_water/ClaudeOpus.mp4",
+        "Code2World": "assets/scene/under_water/Code2World.mp4",
+        "Infinigen": "assets/scene/under_water/Infinigen.mp4"
+      },
+      "posters": {
+        "Ours": "assets/scene/under_water/Ours.jpg",
+        "VIGA": "assets/scene/under_water/VIGA.jpg",
+        "ClaudeOpus": "assets/scene/under_water/ClaudeOpus.jpg",
+        "Code2World": "assets/scene/under_water/Code2World.jpg",
+        "Infinigen": "assets/scene/under_water/Infinigen.jpg"
+      }
+    }
+  ]
+}

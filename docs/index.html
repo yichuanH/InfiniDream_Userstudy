@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>3D Generation User Study</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="progress-wrap"><div id="progress"></div></div>
+
+<main id="app"><p class="loading">Loading…</p></main>
+
+<!-- 送到 Google Form 用的隱藏 iframe；跨站 POST 讀不到狀態碼，靠 load 事件判斷 -->
+<iframe name="gf-sink" id="gf-sink" style="display:none" title="submit sink"></iframe>
+
+<div id="lightbox" hidden><img alt=""><button type="button" aria-label="close">×</button></div>
+
+<script src="i18n.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
