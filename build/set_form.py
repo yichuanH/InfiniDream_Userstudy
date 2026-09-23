@@ -4,14 +4,18 @@
 用法:
     python3 build/set_form.py "<貼上預先填入的連結>"
 
-預填時三格請分別填入 PID / META / RESPONSES 這三個字（大小寫不拘），
+預填時三格請分別填入 PID / META / RESPONSES 這三個字（大小寫、單複數不拘），
 這支腳本就能自動判斷哪個 entry 對應哪個欄位。
 """
 import json, re, sys, urllib.parse
 from pathlib import Path
 
 CFG = Path(__file__).resolve().parent.parent / "docs" / "config.json"
-WANT = {"pid": "pid", "meta": "meta", "responses": "responses"}
+WANT = {                       # 預填值(小寫) -> config 欄位；容忍單複數與縮寫
+    "pid": "pid", "id": "pid",
+    "meta": "meta", "metadata": "meta",
+    "responses": "responses", "response": "responses", "resp": "responses",
+}
 
 
 def main():
