@@ -95,13 +95,13 @@ function render() {
   const done  = S.pages.slice(0, S.idx).filter(isTrial).length;
   $('#progress').style.width = `${(done / Math.max(total, 1)) * 100}%`;
   document.documentElement.lang = S.lang === 'zh' ? 'zh-Hant' : 'en';
+  document.title = T('dir_title');
 
   app().replaceChildren(
     page.kind === 'intro'  ? viewIntro()
     : page.kind === 'done' ? viewDone()
     : viewTrial(page)
   );
-  document.title = T('dir_title');
   window.scrollTo(0, 0);
   S.pageEnteredAt = performance.now();
 }
@@ -120,7 +120,10 @@ function viewIntro() {
     oninput: (e) => { S.name = e.target.value.trim(); err.textContent = ''; },
   });
 
+  const title = el('h1', {}, T('dir_title'));
   const paint = () => {
+    title.textContent = T('dir_title');
+    document.title = T('dir_title');
     nameInput.placeholder = T('name_ph');
     body.replaceChildren(
       el('p', {}, T('welcome_lead', { mins })),
@@ -147,8 +150,7 @@ function viewIntro() {
 
   paint();
   return el('div', { class: 'card' },
-    el('h1', {}, '3D 生成結果比較 — 使用者研究',
-      el('br'), el('span', { class: 'sub' }, 'Comparing 3D Generation Results — User Study')),
+    title,
     el('div', { class: 'field' }, langLabel, langBtns),
     el('div', { class: 'field' }, nameLabel, nameInput),
     el('hr', { class: 'sep' }),
