@@ -28,23 +28,26 @@ def main():
 
     req = urllib.request.Request(action, data=data, method="POST",
                                  headers={"User-Agent": "Mozilla/5.0"})
+    final = action
     try:
         with urllib.request.urlopen(req, timeout=30) as r:
-            code, body = r.status, r.read().decode("utf-8", "replace")
+            code, body, final = r.status, r.read().decode("utf-8", "replace"), r.url
     except urllib.error.HTTPError as e:
         code, body = e.code, e.read().decode("utf-8", "replace")
     except Exception as e:
         sys.exit(f"❌ 連線失敗: {e}")
 
     low = body.lower()
-    recorded = "response has been recorded" in low or "記錄您的回覆" in body
-    login = "accounts.google" in low or "signin" in low
+    # 判斷依據是「有沒有被導去登入頁」，不是頁面裡有沒有 accounts.google
+    #   —— Forms 的確認頁頁尾本來就有 Google 的連結。
+    login = "accounts.google.com" in final.lower() or code in (401, 403)
 
     print(f"HTTP {code}")
-    if code == 200 and recorded:
-        print("\n✅ 送出成功。回試算表確認多了一列 DIAGNOSTIC，確認後可以刪掉。")
+    if code == 200 and not login:
+        print("\n✅ 送出成功 —— 表單接受匿名回覆。"
+              "\n   回試算表確認多了一列 DIAGNOSTIC，確認後可以把測試列刪掉。")
         return
-    if code in (401, 403) or login:
+    if login:
         print("""
 ❌ 表單還在要求登入，資料一筆都進不去。
 
