@@ -108,7 +108,7 @@ function rebuild() {
   var values = src.getDataRange().getValues();
   Logger.log('來源分頁 "%s"，讀到 %s 列', src.getName(), values.length);
   if (values.length < 2) {
-    Logger.log('沒有資料列，結束。');
+    clearOutputs_(ss, '目前沒有任何回覆');
     return;
   }
 
@@ -153,13 +153,25 @@ function rebuild() {
   Logger.log('解析出 %s 位受試者，%s 個物件欄 + %s 個場景欄',
              people.length, cols.object.length, cols.scene.length);
   if (!people.length) {
-    Logger.log('!! 每一列都找不到 responses JSON —— 執行「診斷」看各欄內容。');
+    clearOutputs_(ss, '找不到可解析的回覆 —— 執行選單的「診斷」看各欄內容');
     return;
   }
 
   writeDetail_(ss, people, cols);
   writeTotals_(ss, people);
   Logger.log('完成：已更新「%s」與「%s」', DETAIL, TOTALS);
+}
+
+/** 沒有資料可算時，把兩張表清空並留一行說明，避免留著過期的舊數字。 */
+function clearOutputs_(ss, note) {
+  Logger.log(note);
+  [DETAIL, TOTALS].forEach(function (name) {
+    var sh = ss.getSheetByName(name);
+    if (!sh) return;
+    sh.clear();
+    sh.setConditionalFormatRules([]);
+    sh.getRange(1, 1).setValue(note).setFontWeight('bold');
+  });
 }
 
 function writeDetail_(ss, people, cols) {

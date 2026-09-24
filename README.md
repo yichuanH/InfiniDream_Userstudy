@@ -251,6 +251,16 @@ cannot find the payload.
 
 The raw JSON stays in the form's own response tab; that tab is never modified.
 
+Both tabs are recomputed from scratch on every run, so **deleting rows from the
+response sheet and hitting 立即重算 is how you drop a participant** — pilot runs,
+diagnostics, someone who clicked through in 20 seconds. Delete the whole row
+(right-click the row number), keep row 1, and remember the automatic trigger only
+fires on new submissions, so a manual deletion needs a manual recompute. Deleting
+every row leaves both tabs holding a "no responses" note rather than stale numbers.
+
+Note that rows deleted here still exist in the Form's own *Responses* view —
+Google keeps that copy independently. The analysis only ever reads the sheet.
+
 ## Collecting and analysing responses
 
 Form → *Responses* → the linked sheet → File → Download → CSV, then:
