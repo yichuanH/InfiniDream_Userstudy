@@ -206,6 +206,46 @@ and the completion page offers the result JSON as a download instead.
 
 ---
 
+## Reading the results in the spreadsheet
+
+`build/sheet_script.gs` is an Apps Script that expands the JSON payload into two
+readable tabs, rebuilt automatically on every new response.
+
+**Install once:** spreadsheet -> Extensions -> Apps Script -> paste the whole
+file -> Save -> pick `setUp` in the function dropdown -> Run -> Allow.
+
+**明細 Detail** — one row per participant, one column per question, each cell
+holding the method they picked and the slot it sat in. Cells starting with
+`Ours` are highlighted, so a glance down a column tells you how a case did.
+
+```
+                       |            | 物件 bee              | 物件 king_crab        | 場景 cliff
+ 時間        姓名  語言 費時 | 符合描述  3D品質 | 符合描述  3D品質  | 符合描述  場景真實感
+ 09/24 10:00 A    zh   2.2 | Ours(D)  Ours(D) | Ours(D)  Ours(D) | Ours(E)  Ours(E)
+ 09/24 10:20 B    en   4.4 | Ours(A)  Ours(C) | Ours(F)  VIGA(B)  | ...
+```
+
+**總分 Totals** — per-method tallies, object and scene scored separately because
+they have different numbers of options:
+
+```
+OBJECT            共 72 次判斷 / 6 個方法 / 隨機基準 16.7%
+方法                符合描述  3D品質  總得票  出現次數  勝率
+Ours                    22     22     44      72    61.1%
+3DCodeBench-1shot        4      4      8      72    11.1%
+...
+位置偏誤   A=12.5%  B=22.2%  C=20.8%  D=15.3%  E=11.1%  F=18.1%
+
+SCENE             共 60 次判斷 / 5 個方法 / 隨機基準 20%
+...
+```
+
+The win rate divides wins by how often that method was actually shown, so it
+stays correct if the per-participant sampling is ever reduced. `位置偏誤` is the
+position-bias check: each slot should attract about a chance share of the picks.
+
+A menu item, **User Study -> 立即重算**, recomputes on demand.
+
 ## Collecting and analysing responses
 
 Form → *Responses* → the linked sheet → File → Download → CSV, then:
