@@ -25,7 +25,34 @@ function onOpen() {
   SpreadsheetApp.getUi()
     .createMenu('User Study')
     .addItem('立即重算', 'rebuild')
+    .addItem('診斷', 'diagnose')
     .addToUi();
+}
+
+/** 找不出資料時跑這個，執行記錄會印出它到底看到什麼。 */
+function diagnose() {
+  var ss = SpreadsheetApp.getActiveSpreadsheet();
+  Logger.log('試算表: %s', ss.getName());
+  ss.getSheets().forEach(function (sh) {
+    Logger.log('  分頁 "%s"  %s 列 x %s 欄', sh.getName(), sh.getLastRow(), sh.getLastColumn());
+  });
+  var src = sourceSheet_(ss);
+  Logger.log('判定來源分頁: "%s"', src.getName());
+  var v = src.getDataRange().getValues();
+  Logger.log('讀到 %s 列', v.length);
+  if (v.length < 2) { Logger.log('!! 少於 2 列，沒有資料可處理'); return; }
+  Logger.log('標題列: %s', JSON.stringify(v[0]));
+  for (var r = 1; r < Math.min(v.length, 3); r++) {
+    Logger.log('--- 第 %s 列 ---', r + 1);
+    for (var c = 0; c < v[r].length; c++) {
+      var t = String(v[r][c] == null ? '' : v[r][c]);
+      Logger.log('  欄 %s  長度=%s  開頭=%s', c + 1, t.length,
+                 JSON.stringify(t.slice(0, 60)));
+    }
+    Logger.log('  findResponses_ -> %s',
+               findResponses_(v[r]) ? '找到 (' + findResponses_(v[r]).length + ' 字)' : '!! 沒找到');
+    Logger.log('  findMeta_      -> %s', findMeta_(v[r]) ? '找到' : '沒找到');
+  }
 }
 
 /** 執行這個安裝自動重算的觸發器（只需跑一次）。 */
@@ -50,19 +77,25 @@ function sourceSheet_(ss) {
   return sheets[0];
 }
 
-/** 從一列裡找出 responses 那一格（開頭是 [ 且含 chosen_method）。 */
+/** 從一列裡找出 responses 那一格。只要含 chosen_method 就算，並切掉前後雜訊。 */
 function findResponses_(row) {
   for (var i = 0; i < row.length; i++) {
-    var v = String(row[i] || '');
-    if (v.charAt(0) === '[' && v.indexOf('"chosen_method"') >= 0) return v;
+    var v = String(row[i] == null ? '' : row[i]);
+    if (v.indexOf('chosen_method') < 0) continue;
+    var a = v.indexOf('['), b = v.lastIndexOf(']');
+    if (a >= 0 && b > a) return v.slice(a, b + 1);
   }
   return null;
 }
 
+/** meta 那一格：含 started_at 或 lang 的 JSON 物件。 */
 function findMeta_(row) {
   for (var i = 0; i < row.length; i++) {
-    var v = String(row[i] || '');
-    if (v.charAt(0) === '{' && v.indexOf('"lang"') >= 0) return v;
+    var v = String(row[i] == null ? '' : row[i]);
+    if (v.indexOf('chosen_method') >= 0) continue;      // 那是 responses
+    if (v.indexOf('started_at') < 0 && v.indexOf('"lang"') < 0) continue;
+    var a = v.indexOf('{'), b = v.lastIndexOf('}');
+    if (a >= 0 && b > a) return v.slice(a, b + 1);
   }
   return null;
 }
@@ -73,7 +106,11 @@ function rebuild() {
   var ss = SpreadsheetApp.getActiveSpreadsheet();
   var src = sourceSheet_(ss);
   var values = src.getDataRange().getValues();
-  if (values.length < 2) return;
+  Logger.log('來源分頁 "%s"，讀到 %s 列', src.getName(), values.length);
+  if (values.length < 2) {
+    Logger.log('沒有資料列，結束。');
+    return;
+  }
 
   var people = [];                        // 每位受試者一筆
   var cols = { object: [], scene: [] };   // 題目欄位的出現順序
@@ -113,10 +150,16 @@ function rebuild() {
       answers: answers
     });
   }
-  if (!people.length) return;
+  Logger.log('解析出 %s 位受試者，%s 個物件欄 + %s 個場景欄',
+             people.length, cols.object.length, cols.scene.length);
+  if (!people.length) {
+    Logger.log('!! 每一列都找不到 responses JSON —— 執行「診斷」看各欄內容。');
+    return;
+  }
 
   writeDetail_(ss, people, cols);
   writeTotals_(ss, people);
+  Logger.log('完成：已更新「%s」與「%s」', DETAIL, TOTALS);
 }
 
 function writeDetail_(ss, people, cols) {

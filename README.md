@@ -244,7 +244,12 @@ The win rate divides wins by how often that method was actually shown, so it
 stays correct if the per-participant sampling is ever reduced. `位置偏誤` is the
 position-bias check: each slot should attract about a chance share of the picks.
 
-A menu item, **User Study -> 立即重算**, recomputes on demand.
+A menu item, **User Study -> 立即重算**, recomputes on demand — the menu only
+appears after the spreadsheet is reloaded, so reload once after installing.
+**User Study -> 診斷** logs what the script sees in each column, for when it
+cannot find the payload.
+
+The raw JSON stays in the form's own response tab; that tab is never modified.
 
 ## Collecting and analysing responses
 
