@@ -35,8 +35,8 @@ OBJ_METHODS = [
 ]
 OBJ_CASES = [
     "colorful_butterfly", "golden_pangolin", "snow_leopard", "alpine_hare",
-    "pink_mossy_boulder", "bee", "king_crab", "lavender",
-    "red_handfish", "peacock", "blue_jacaranda_tree", "seahorse",
+    "pink_mossy_boulder", "bee", "king_crab", "hummingbird",
+    "red_handfish", "clownfish_striped_shanda", "blue_jacaranda_tree", "seahorse",
 ]
 
 # 個別 (case, 方法代號) 換掉預設視角。

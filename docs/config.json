@@ -149,18 +149,18 @@
       }
     },
     {
-      "id": "lavender",
-      "category": "Plants_20",
-      "prompt": "A lavender plant: many thin upright grey-green stems rising from a bushy base, each stem topped by a narrow spike of small purple flowers clustered around it.",
-      "prompt_zh": "一株薰衣草：許多細長筆直的灰綠色莖從叢生的基部向上生長，每根莖的頂端都是一束細長的花穗，上面聚集著細小的紫色花朵。",
-      "ref": "assets/obj/lavender/_ref.jpg",
+      "id": "hummingbird",
+      "category": "Animal_25",
+      "prompt": "A hummingbird hovering: a tiny body with iridescent green back and a bright red throat patch, wings blurred out to the sides in mid-beat, a very long thin straight needle-like beak, and a short fanned tail.",
+      "prompt_zh": "一隻懸停中的蜂鳥：嬌小的身體、帶虹彩的綠色背部、鮮紅色的喉部斑塊；翅膀在振翅中途向兩側模糊展開；有一根極長、細直如針的喙，以及短短的扇形尾羽。",
+      "ref": "assets/obj/hummingbird/_ref.jpg",
       "images": {
-        "ours": "assets/obj/lavender/ours.jpg",
-        "blenderag": "assets/obj/lavender/blenderag.jpg",
-        "viga": "assets/obj/lavender/viga.jpg",
-        "cb_one_shot": "assets/obj/lavender/cb_one_shot.jpg",
-        "cb_harness": "assets/obj/lavender/cb_harness.jpg",
-        "infinigen": "assets/obj/lavender/infinigen.jpg"
+        "ours": "assets/obj/hummingbird/ours.jpg",
+        "blenderag": "assets/obj/hummingbird/blenderag.jpg",
+        "viga": "assets/obj/hummingbird/viga.jpg",
+        "cb_one_shot": "assets/obj/hummingbird/cb_one_shot.jpg",
+        "cb_harness": "assets/obj/hummingbird/cb_harness.jpg",
+        "infinigen": "assets/obj/hummingbird/infinigen.jpg"
       }
     },
     {
@@ -179,18 +179,18 @@
       }
     },
     {
-      "id": "peacock",
-      "category": "Animal_25",
-      "prompt": "A peacock with its train fanned out: iridescent blue neck and breast, a crest of thin feathers on the head, and a huge semicircular fan of long tail feathers behind it, each ending in a blue-and-green eye spot.",
-      "prompt_zh": "一隻開屏的孔雀：頸部與胸前是帶虹彩的藍色，頭頂有一撮細長羽毛組成的冠羽，身後張開一面巨大的半圓形尾屏，每根長尾羽的末端都有一個藍綠色的眼狀斑。",
-      "ref": "assets/obj/peacock/_ref.jpg",
+      "id": "clownfish_striped_shanda",
+      "category": "Marine_15",
+      "prompt": "a clownfish: a small round-bodied bright orange fish with three bold white vertical bands across the body (one behind the eye, one at mid-body, one near the tail), every white band outlined by a crisp thin black edge, and black tips on all fins",
+      "prompt_zh": "一隻小丑魚：身體小而圓潤、呈鮮豔的橘色，身上有三道醒目的白色垂直條帶（一道在眼後、一道在身體中段、一道靠近尾部），每道白帶都被一圈俐落的細黑邊包覆，所有魚鰭的末端都是黑色的。",
+      "ref": "assets/obj/clownfish_striped_shanda/_ref.jpg",
       "images": {
-        "ours": "assets/obj/peacock/ours.jpg",
-        "blenderag": "assets/obj/peacock/blenderag.jpg",
-        "viga": "assets/obj/peacock/viga.jpg",
-        "cb_one_shot": "assets/obj/peacock/cb_one_shot.jpg",
-        "cb_harness": "assets/obj/peacock/cb_harness.jpg",
-        "infinigen": "assets/obj/peacock/infinigen.jpg"
+        "ours": "assets/obj/clownfish_striped_shanda/ours.jpg",
+        "blenderag": "assets/obj/clownfish_striped_shanda/blenderag.jpg",
+        "viga": "assets/obj/clownfish_striped_shanda/viga.jpg",
+        "cb_one_shot": "assets/obj/clownfish_striped_shanda/cb_one_shot.jpg",
+        "cb_harness": "assets/obj/clownfish_striped_shanda/cb_harness.jpg",
+        "infinigen": "assets/obj/clownfish_striped_shanda/infinigen.jpg"
       }
     },
     {
